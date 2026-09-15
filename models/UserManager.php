@@ -21,4 +21,11 @@ class UserManager extends AbstractEntityManager
         }
         return null;
     }
+    public function countUsers() : int
+{
+    $sql = "SELECT COUNT(*) AS nbUsers FROM user";
+    $result = $this->db->query($sql);
+    $row = $result->fetch();
+    return (int) $row['nbUsers'];
+}
 }

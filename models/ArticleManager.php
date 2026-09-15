@@ -92,4 +92,14 @@ class ArticleManager extends AbstractEntityManager
         $sql = "DELETE FROM article WHERE id = :id";
         $this->db->query($sql, ['id' => $id]);
     }
+    public function getMostViewedArticle() : ?Article
+    {
+        $sql = "SELECT * FROM article ORDER BY views DESC LIMIT 1";
+        $result = $this->db->query($sql);
+        $article = $result->fetch();
+        if ($article) {
+            return new Article($article);
+        }
+        return null;
+    }
 }

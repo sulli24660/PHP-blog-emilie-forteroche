@@ -176,4 +176,15 @@ class AdminController {
         // On redirige vers la page d'administration.
         Utils::redirect("admin");
     }
+    public function monitoring() : void
+    {  // Ici on récupère le nbre d'articles
+    $this->checkIfUserIsConnected();
+    $articleManager = new ArticleManager();
+    $articles = $articleManager->getAllArticles();
+    $nbArticles = count($articles);
+
+
+    $commentManager = new CommentManager();
+    $nbComment = $commentManager->countComment();
+    }
 }

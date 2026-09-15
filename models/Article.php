@@ -12,7 +12,7 @@
     private ?DateTime $dateCreation = null;
     private ?DateTime $dateUpdate = null;  
 
-    /**
+    /*
      * Setter pour l'id de l'utilisateur. 
      * @param int $idUser
      */
@@ -126,5 +126,23 @@
     public function getDateUpdate() : ?DateTime 
     {
         return $this->dateUpdate;
+    }
+
+         // Setter pour le nbre de views sur l'article. 
+     // @param int $views
+
+    private int $views = 0;
+    public function setViews(int $views) : void 
+    {
+        $this->views = $views;
+    }
+
+
+    // Getter pour le nbre de views sur l'article
+     // @return int
+    
+    public function getViews() : int 
+    {
+        return $this->views;
     }
  }
