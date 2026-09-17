@@ -186,5 +186,18 @@ class AdminController {
 
     $commentManager = new CommentManager();
     $nbComment = $commentManager->countComment();
+
+    $userManager = new UserManager();
+    $nbUsers = $userManager->countUsers();
+
+    $mostViewedArticle = $articleManager->getMostViewedArticle(); 
+
+    $view = new View("Monitoring");
+    $view->render("monitoring",
+    ['nbArticles' => $nbArticles,
+    'nbUsers' => $nbUsers,
+    'nbComment' => $nbComment,
+    'mostViewedArticle' => $mostViewedArticle]);
     }
+
 }
